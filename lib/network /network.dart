@@ -8,7 +8,8 @@ class Network {
   Future<WeatherForecastModel> getWeatherForcast({
     required String cityName,
   }) async {
-    final util = WeatherForecastUtil.appId;
+    try{
+         final util = WeatherForecastUtil.appId;
     var finalUrl =
         "http://api.openweathermap.org/data/2.5/weather?q=$cityName&APPID=$util&units=imperial";
     final response = await get(Uri.parse(finalUrl));
@@ -20,6 +21,12 @@ class Network {
       /// we are mapping it as weather object
     } else {
       throw Exception("Error getting weather forecast");
+     
     }
+    }catch(e){
+      print("error code: $e"  );
+      rethrow;
+    }
+ 
   }
 }

@@ -77,8 +77,8 @@ class WeatherForecastModel {
       data['clouds'] = clouds!.toJson();
     }
     data['dt'] = dt;
-    if (this.sys != null) {
-      data['sys'] = this.sys!.toJson();
+    if (sys != null) {
+      data['sys'] = sys!.toJson();
     }
     return data;
   }
@@ -123,7 +123,7 @@ class Weather {
     data['id'] = id;
     data['main'] = main;
     data['description'] = description;
-    data['icon'] = this.icon;
+    data['icon'] = icon;
     return data;
   }
 }
@@ -162,7 +162,7 @@ class Main {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['temp'] = this.temp;
+    data['temp'] = temp;
     data['feels_like'] = feelsLike;
     data['temp_min'] = tempMin;
     data['temp_max'] = tempMax;
